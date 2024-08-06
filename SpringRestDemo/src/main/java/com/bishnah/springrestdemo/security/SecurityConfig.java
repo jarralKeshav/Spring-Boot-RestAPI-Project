@@ -70,14 +70,14 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(authorize -> authorize.requestMatchers("/db-console/**").permitAll().requestMatchers("/swagger-ui/**").permitAll().requestMatchers("/v3/api-docs/**").permitAll()
-                .requestMatchers("/auth/users/add").permitAll()
-                .requestMatchers("/auth/profile").authenticated()
-                .requestMatchers("/auth/profile/update-password").authenticated()
-                .requestMatchers("/auth/profile/delete").authenticated()
-                .requestMatchers("/auth/token").permitAll()
-                .requestMatchers("/auth/users").hasAuthority("SCOPE_ADMIN")
-                .requestMatchers("/auth/users/{user_id}/update-authorities").hasAuthority("SCOPE_ADMIN")
-                .requestMatchers("/test").authenticated()).oauth2ResourceServer(oauth2 -> oauth2.jwt(Customizer.withDefaults())).sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
+                .requestMatchers("/api/v1/auth/users/add").permitAll()
+                .requestMatchers("/api/v1/auth/profile").authenticated()
+                .requestMatchers("/api/v1/auth/profile/update-password").authenticated()
+                .requestMatchers("/api/v1/auth/profile/delete").authenticated()
+                .requestMatchers("/api/v1/auth/token").permitAll()
+                .requestMatchers("/api/v1/auth/users").hasAuthority("SCOPE_ADMIN")
+                .requestMatchers("/api/v1/auth/users/{user_id}/update-authorities").hasAuthority("SCOPE_ADMIN"))
+                .oauth2ResourceServer(oauth2 -> oauth2.jwt(Customizer.withDefaults())).sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
         http.httpBasic(Customizer.withDefaults());
         http.csrf(AbstractHttpConfigurer::disable);
