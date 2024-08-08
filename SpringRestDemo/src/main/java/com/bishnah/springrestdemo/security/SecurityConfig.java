@@ -73,9 +73,16 @@ public class SecurityConfig {
                 .requestMatchers("/db-console/**").permitAll()
                 .requestMatchers("/swagger-ui/**").permitAll()
                 .requestMatchers("/v3/api-docs/**").permitAll()
+                .requestMatchers("/api/v1/albums/{album_id}/photos/{photo_id}/download-photo").permitAll()
+                .requestMatchers("/api/v1/albums/{album_id}/photos/{photo_id}/download-thumbnail").permitAll()
                 .requestMatchers("/api/v1/albums/photos").permitAll()
                 .requestMatchers("/api/v1/albums/{album_id}/upload-photos").permitAll()
-                .requestMatchers("/api/v1/albums/add").permitAll().requestMatchers("/api/v1/albums").permitAll().requestMatchers("/api/v1/auth/users/add").permitAll().requestMatchers("/api/v1/auth/profile").authenticated().requestMatchers("/api/v1/auth/profile/update-password").authenticated().requestMatchers("/api/v1/auth/profile/delete").authenticated().requestMatchers("/api/v1/auth/token").permitAll().requestMatchers("/api/v1/auth/users").hasAuthority("SCOPE_ADMIN").requestMatchers("/api/v1/auth/users/{user_id}/update-authorities").hasAuthority("SCOPE_ADMIN")).oauth2ResourceServer(oauth2 -> oauth2.jwt(Customizer.withDefaults())).sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
+                .requestMatchers("/api/v1/albums/{album_id}/photos/{photo_id}/update").permitAll()
+                .requestMatchers("/api/v1/albums/add").permitAll()
+                .requestMatchers("/api/v1/albums").permitAll()
+                .requestMatchers("/api/v1/albums/{album_id}").permitAll()
+                .requestMatchers("/api/v1/albums/{album_id}/update").permitAll()
+                .requestMatchers("/api/v1/auth/users/add").permitAll().requestMatchers("/api/v1/auth/profile").authenticated().requestMatchers("/api/v1/auth/profile/update-password").authenticated().requestMatchers("/api/v1/auth/profile/delete").authenticated().requestMatchers("/api/v1/auth/token").permitAll().requestMatchers("/api/v1/auth/users").hasAuthority("SCOPE_ADMIN").requestMatchers("/api/v1/auth/users/{user_id}/update-authorities").hasAuthority("SCOPE_ADMIN")).oauth2ResourceServer(oauth2 -> oauth2.jwt(Customizer.withDefaults())).sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
         http.httpBasic(Customizer.withDefaults());
         http.csrf(AbstractHttpConfigurer::disable);
