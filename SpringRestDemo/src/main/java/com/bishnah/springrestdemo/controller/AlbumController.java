@@ -185,6 +185,104 @@ public class AlbumController {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    @DeleteMapping(value = "/albums/{album_id}/delete")
+    @ResponseStatus(HttpStatus.CREATED) //optional
+//    @ApiResponse(responseCode = "400", description = "Please enter a valid name and description")
+    @ApiResponse(responseCode = "202", description = "Album Deleted")
+    @Operation(summary = "Delete an Album")
+    @SecurityRequirement(name = "Spring-Demo-Api")
+    public ResponseEntity<String> delete_album(@PathVariable Long album_id,Authentication authentication) {
+
+        try {
+            String email = authentication.getName();
+            Optional<Account> optionalAccount = accountService.findByEmail(email);
+            Account account = optionalAccount.get();
+
+            Optional<Album> optionalAlbum = albumService.findById(album_id);
+            Album album;
+            if (optionalAlbum.isPresent()) {
+                album = optionalAlbum.get();
+                if (account.getId() != album.getAccount().getId()) {
+                    return ResponseEntity.status(HttpStatus.FORBIDDEN).body(null);
+                }
+
+            }else {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+            }
+
+            for (Photo photo: photoService.findByAlbumId(album_id)) {
+                AppUtil.delelet_photo_from_path(photo.getFileName(),PHOTOS_FOLDER_NAME,album_id);
+                AppUtil.delelet_photo_from_path(photo.getFileName(),THUMBNAIL_FOLDER_NAME,album_id);
+                photoService.delete(photo);
+            }
+            albumService.deletAlbum(album);
+            return  ResponseEntity.status(HttpStatus.ACCEPTED).body(null);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+        }
+
+    }
+
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+    @DeleteMapping(value = "/albums/{album_id}/photos/{photo_id}/delete")
+    @ResponseStatus(HttpStatus.CREATED) //optional
+    @ApiResponse(responseCode = "202", description = "Photo deleted")
+    @Operation(summary = "delete a  photo")
+    @SecurityRequirement(name = "Spring-Demo-Api")
+    public ResponseEntity<String> delete_photo(@PathVariable Long album_id, @PathVariable Long photo_id, Authentication authentication) {
+        try {
+            String email = authentication.getName();
+            Optional<Account> optionalAccount = accountService.findByEmail(email);
+            Account account = optionalAccount.get();
+            Optional<Album> optionalAlbum = albumService.findById(album_id);
+            Album album;
+            if (optionalAlbum.isPresent()) {
+                album = optionalAlbum.get();
+                if (account.getId() != album.getAccount().getId()) {
+                    return ResponseEntity.status(HttpStatus.FORBIDDEN).body(null);
+                }
+            }else {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+            }
+
+            Optional<Photo> optionalPhoto = photoService.findById(photo_id);
+            if (optionalPhoto.isPresent()) {
+                Photo photo = optionalPhoto.get();
+                if (photo.getAlbum().getId()!=album_id){
+                    return ResponseEntity.status(HttpStatus.FORBIDDEN).body(null);
+                }
+
+                AppUtil.delelet_photo_from_path(photo.getFileName(),PHOTOS_FOLDER_NAME,album_id);
+                AppUtil.delelet_photo_from_path(photo.getFileName(),THUMBNAIL_FOLDER_NAME,album_id);
+                photoService.delete(photo);
+
+                return ResponseEntity.status(HttpStatus.ACCEPTED).body(null);
+
+            }else {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+            }
+        } catch (Exception e) {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+        }
+
+
+    }
+
+
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
 

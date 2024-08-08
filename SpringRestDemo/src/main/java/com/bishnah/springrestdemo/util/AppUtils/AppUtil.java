@@ -15,17 +15,36 @@ import java.nio.file.Paths;
 
 public class AppUtil {
 
+    public static String PATH = "src" + File.separator +"main" + File.separator + "resources" + File.separator +
+            "static" + File.separator + "uploads"+ File.separator;
+
     public static String get_photo_upload_path(
             String fileName,String folder_name, long album_id
     ) throws IOException {
-        String path =
-                "src" + File.separator +"main" + File.separator + "resources" + File.separator + "static" + File.separator + "uploads"+ File.separator  + album_id+ File.separator+ folder_name;
+        String path =PATH+ album_id+ File.separator+ folder_name;
 
         Files.createDirectories(Paths.get(path));
         return new File(path).getAbsolutePath() + File.separator + fileName;
 
 
     }
+
+    public static boolean delelet_photo_from_path(String fileName, String folder_name, Long album_id) {
+        try {
+            File f = new File(PATH+ album_id+ File.separator+ folder_name+ File.separator + fileName);
+            if(f.delete()){
+                return true;
+            }else {
+                return false;
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+
     public static BufferedImage getThumbnail(MultipartFile originalFile, Integer width) throws IOException {
         BufferedImage thumbImg = null;
         BufferedImage img = ImageIO.read(originalFile.getInputStream());
