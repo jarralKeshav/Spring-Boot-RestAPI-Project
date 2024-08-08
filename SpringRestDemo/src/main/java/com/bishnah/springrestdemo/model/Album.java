@@ -6,19 +6,22 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Setter
 @Getter
+@Setter
 @ToString
-public class Account {
-
+public class Album
+{
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    @Column(unique = true)
-    private String email;
+    private String title;
 
-    private String password;
+    private String description;
 
-    private String Authorities;
+    @ManyToOne
+    @JoinColumn(name = "account_id", referencedColumnName ="id", nullable = false)
+    private Account account;
+
+
 }
