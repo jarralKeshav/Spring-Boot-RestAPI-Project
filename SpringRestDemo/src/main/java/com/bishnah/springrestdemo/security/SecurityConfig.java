@@ -71,6 +71,7 @@ public class SecurityConfig {
         http.authorizeHttpRequests(authorize -> authorize
                 .requestMatchers("/resources/static/uploads/**").permitAll()
                 .requestMatchers("/db-console/**").permitAll()
+                .requestMatchers("/api/v1").permitAll()
                 .requestMatchers("/swagger-ui/**").permitAll()
                 .requestMatchers("/v3/api-docs/**").permitAll()
                 .requestMatchers("/api/v1/albums/{album_id}/photos/{photo_id}/download-photo").permitAll()

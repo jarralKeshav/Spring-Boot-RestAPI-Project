@@ -37,6 +37,7 @@ import java.nio.file.StandardCopyOption;
 import java.util.*;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000", maxAge = 3600)
 @RequestMapping("/api/v1")
 @Tag(name = "Album Controller", description = "Controller for Album and Photo Management")
 @Slf4j
