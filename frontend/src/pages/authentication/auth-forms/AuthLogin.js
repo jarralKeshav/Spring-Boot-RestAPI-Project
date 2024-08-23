@@ -14,6 +14,7 @@ const AuthLogin = () => {
     const isLoggedIn = localStorage.getItem('token');
     if (isLoggedIn) {
       navigate('/');
+      window.location.reload();
     }
   }, []);
 
@@ -45,6 +46,7 @@ const AuthLogin = () => {
         setLoginError('');
         localStorage.setItem('token', token);
         navigate('/');
+        window.location.reload();
       })
       .catch((error) => {
         console.error('Login Error: ', error);

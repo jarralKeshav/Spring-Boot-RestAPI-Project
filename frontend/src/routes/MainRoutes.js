@@ -7,7 +7,8 @@ import MainLayout from 'layout/MainLayout';
 // render - dashboard
 
 // render - sample page
-const SamplePage = Loadable(lazy(() => import('pages/extra-pages/SamplePage')));
+const AlbumsPage = Loadable(lazy(() => import('pages/albums/albums')));
+const AboutPage = Loadable(lazy(() => import('pages/staticPages/about')));
 
 // render - utilities
 
@@ -19,7 +20,11 @@ const MainRoutes = {
   children: [
     {
       path: '/',
-      element: <SamplePage />
+      element: <AlbumsPage />
+    },
+    {
+      path: '/about',
+      element: <AboutPage />
     }
   ]
 };

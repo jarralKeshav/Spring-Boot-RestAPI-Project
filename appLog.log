@@ -1,38 +1,35 @@
-2024-08-22 20:13:32,245 [INFO] com.bishnah.springrestdemo.SpringRestDemoApplication {main} Starting SpringRestDemoApplication using Java 22.0.2 with PID 9658 (/home/keshavjrall/Spring Boot/SpringRestDemo/target/classes started by keshavjrall in /home/keshavjrall/Spring Boot)
-2024-08-22 20:13:32,252 [DEBUG] com.bishnah.springrestdemo.SpringRestDemoApplication {main} Running with Spring Boot v3.3.2, Spring v6.1.11
-2024-08-22 20:13:32,252 [INFO] com.bishnah.springrestdemo.SpringRestDemoApplication {main} No active profile set, falling back to 1 default profile: "default"
-2024-08-22 20:13:33,319 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate {main} Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-08-22 20:13:33,377 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate {main} Finished Spring Data repository scanning in 51 ms. Found 3 JPA repository interfaces.
-2024-08-22 20:13:34,126 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer {main} Tomcat initialized with port 8080 (http)
-2024-08-22 20:13:34,148 [INFO] org.apache.catalina.core.StandardService {main} Starting service [Tomcat]
-2024-08-22 20:13:34,148 [INFO] org.apache.catalina.core.StandardEngine {main} Starting Servlet engine: [Apache Tomcat/10.1.26]
-2024-08-22 20:13:34,196 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] {main} Initializing Spring embedded WebApplicationContext
-2024-08-22 20:13:34,196 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext {main} Root WebApplicationContext: initialization completed in 1898 ms
-2024-08-22 20:13:34,336 [INFO] com.zaxxer.hikari.HikariDataSource {main} HikariPool-1 - Starting...
-2024-08-22 20:13:34,587 [INFO] com.zaxxer.hikari.pool.HikariPool {main} HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./db/blogdb user=ADMIN
-2024-08-22 20:13:34,589 [INFO] com.zaxxer.hikari.HikariDataSource {main} HikariPool-1 - Start completed.
-2024-08-22 20:13:34,600 [INFO] org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration {main} H2 console available at '/db-console'. Database available at 'jdbc:h2:file:./db/blogdb'
-2024-08-22 20:13:34,885 [INFO] org.hibernate.jpa.internal.util.LogHelper {main} HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-08-22 20:13:34,976 [INFO] org.hibernate.Version {main} HHH000412: Hibernate ORM core version 6.5.2.Final
-2024-08-22 20:13:35,019 [INFO] org.hibernate.cache.internal.RegionFactoryInitiator {main} HHH000026: Second-level cache disabled
-2024-08-22 20:13:35,426 [INFO] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo {main} No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-08-22 20:13:36,509 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator {main} HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-08-22 20:13:36,567 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean {main} Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-08-22 20:13:37,708 [INFO] org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer {main} Global AuthenticationManager configured with UserDetailsService bean with name accountService
-2024-08-22 20:13:38,907 [INFO] org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver {main} Exposing 1 endpoint beneath base path '/actuator'
-2024-08-22 20:13:40,390 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer {main} Tomcat started on port 8080 (http) with context path '/'
-2024-08-22 20:13:40,412 [INFO] com.bishnah.springrestdemo.SpringRestDemoApplication {main} Started SpringRestDemoApplication in 8.57 seconds (process running for 9.311)
-2024-08-22 20:13:41,241 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] {RMI TCP Connection(1)-192.168.1.22} Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-08-22 20:13:41,242 [INFO] org.springframework.web.servlet.DispatcherServlet {RMI TCP Connection(1)-192.168.1.22} Initializing Servlet 'dispatcherServlet'
-2024-08-22 20:13:41,245 [INFO] org.springframework.web.servlet.DispatcherServlet {RMI TCP Connection(1)-192.168.1.22} Completed initialization in 3 ms
-2024-08-22 20:13:56,911 [INFO] org.springdoc.api.AbstractOpenApiResource {http-nio-8080-exec-1} Init duration for springdoc-openapi is: 265 ms
-2024-08-22 20:37:48,588 [DEBUG] com.bishnah.springrestdemo.controller.AuthController {http-nio-8080-exec-9} TOKEN_GENERATION_ERROR Bad credentials
-2024-08-22 20:37:54,730 [DEBUG] com.bishnah.springrestdemo.controller.AuthController {http-nio-8080-exec-1} TOKEN_GENERATION_ERROR Bad credentials
-2024-08-22 20:38:10,969 [DEBUG] com.bishnah.springrestdemo.controller.AuthController {http-nio-8080-exec-3} TOKEN_GENERATION_ERROR Bad credentials
-2024-08-22 20:38:15,183 [DEBUG] com.bishnah.springrestdemo.controller.AuthController {http-nio-8080-exec-4} TOKEN_GENERATION_ERROR Bad credentials
-2024-08-22 20:39:00,743 [DEBUG] com.bishnah.springrestdemo.controller.AuthController {http-nio-8080-exec-6} TOKEN_GENERATION_ERROR Bad credentials
-2024-08-22 20:39:02,315 [DEBUG] com.bishnah.springrestdemo.controller.AuthController {http-nio-8080-exec-7} TOKEN_GENERATION_ERROR Bad credentials
-2024-08-22 20:39:02,486 [DEBUG] com.bishnah.springrestdemo.controller.AuthController {http-nio-8080-exec-10} TOKEN_GENERATION_ERROR Bad credentials
-2024-08-22 20:39:02,633 [DEBUG] com.bishnah.springrestdemo.controller.AuthController {http-nio-8080-exec-8} TOKEN_GENERATION_ERROR Bad credentials
-2024-08-22 20:49:38,215 [DEBUG] com.bishnah.springrestdemo.controller.AuthController {http-nio-8080-exec-9} TOKEN_GENERATION_ERROR Bad credentials
-2024-08-22 20:49:40,685 [DEBUG] com.bishnah.springrestdemo.controller.AuthController {http-nio-8080-exec-1} TOKEN_GENERATION_ERROR Bad credentials
+2024-08-23 00:54:03,359 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean {SpringApplicationShutdownHook} Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-08-23 00:54:03,369 [INFO] com.zaxxer.hikari.HikariDataSource {SpringApplicationShutdownHook} HikariPool-1 - Shutdown initiated...
+2024-08-23 00:54:03,376 [INFO] com.zaxxer.hikari.HikariDataSource {SpringApplicationShutdownHook} HikariPool-1 - Shutdown completed.
+2024-08-23 10:56:48,329 [INFO] com.bishnah.springrestdemo.SpringRestDemoApplication {main} Starting SpringRestDemoApplication using Java 22.0.2 with PID 5096 (/home/keshavjrall/Spring Boot/SpringRestDemo/target/classes started by keshavjrall in /home/keshavjrall/Spring Boot)
+2024-08-23 10:56:48,330 [DEBUG] com.bishnah.springrestdemo.SpringRestDemoApplication {main} Running with Spring Boot v3.3.2, Spring v6.1.11
+2024-08-23 10:56:48,331 [INFO] com.bishnah.springrestdemo.SpringRestDemoApplication {main} No active profile set, falling back to 1 default profile: "default"
+2024-08-23 10:56:49,351 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate {main} Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-23 10:56:49,398 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate {main} Finished Spring Data repository scanning in 40 ms. Found 3 JPA repository interfaces.
+2024-08-23 10:56:50,004 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer {main} Tomcat initialized with port 8080 (http)
+2024-08-23 10:56:50,027 [INFO] org.apache.catalina.core.StandardService {main} Starting service [Tomcat]
+2024-08-23 10:56:50,027 [INFO] org.apache.catalina.core.StandardEngine {main} Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-08-23 10:56:50,068 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] {main} Initializing Spring embedded WebApplicationContext
+2024-08-23 10:56:50,068 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext {main} Root WebApplicationContext: initialization completed in 1689 ms
+2024-08-23 10:56:50,187 [INFO] com.zaxxer.hikari.HikariDataSource {main} HikariPool-1 - Starting...
+2024-08-23 10:56:50,364 [INFO] com.zaxxer.hikari.pool.HikariPool {main} HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./db/blogdb user=ADMIN
+2024-08-23 10:56:50,366 [INFO] com.zaxxer.hikari.HikariDataSource {main} HikariPool-1 - Start completed.
+2024-08-23 10:56:50,374 [INFO] org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration {main} H2 console available at '/db-console'. Database available at 'jdbc:h2:file:./db/blogdb'
+2024-08-23 10:56:50,540 [INFO] org.hibernate.jpa.internal.util.LogHelper {main} HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-08-23 10:56:50,595 [INFO] org.hibernate.Version {main} HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-08-23 10:56:50,629 [INFO] org.hibernate.cache.internal.RegionFactoryInitiator {main} HHH000026: Second-level cache disabled
+2024-08-23 10:56:50,882 [INFO] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo {main} No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-08-23 10:56:51,621 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator {main} HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-08-23 10:56:51,659 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean {main} Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-08-23 10:56:52,352 [INFO] org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer {main} Global AuthenticationManager configured with UserDetailsService bean with name accountService
+2024-08-23 10:56:52,750 [INFO] org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver {main} Exposing 1 endpoint beneath base path '/actuator'
+2024-08-23 10:56:53,356 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer {main} Tomcat started on port 8080 (http) with context path '/'
+2024-08-23 10:56:53,368 [INFO] com.bishnah.springrestdemo.SpringRestDemoApplication {main} Started SpringRestDemoApplication in 5.468 seconds (process running for 6.133)
+2024-08-23 10:56:53,911 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] {RMI TCP Connection(1)-192.168.1.22} Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-23 10:56:53,911 [INFO] org.springframework.web.servlet.DispatcherServlet {RMI TCP Connection(1)-192.168.1.22} Initializing Servlet 'dispatcherServlet'
+2024-08-23 10:56:53,915 [INFO] org.springframework.web.servlet.DispatcherServlet {RMI TCP Connection(1)-192.168.1.22} Completed initialization in 4 ms
+2024-08-23 10:57:00,431 [INFO] org.springdoc.api.AbstractOpenApiResource {http-nio-8080-exec-10} Init duration for springdoc-openapi is: 283 ms
+2024-08-23 10:58:56,562 [DEBUG] com.bishnah.springrestdemo.controller.AuthController {http-nio-8080-exec-8} TOKEN_GENERATION_ERROR Bad credentials
+2024-08-23 10:59:45,289 [DEBUG] com.bishnah.springrestdemo.controller.AuthController {http-nio-8080-exec-9} TOKEN_GENERATION_ERROR Bad credentials
+2024-08-23 11:00:12,575 [DEBUG] com.bishnah.springrestdemo.controller.AuthController {http-nio-8080-exec-10} TOKEN_GENERATION_ERROR Bad credentials
+2024-08-23 11:00:14,514 [DEBUG] com.bishnah.springrestdemo.controller.AuthController {http-nio-8080-exec-1} TOKEN_GENERATION_ERROR Bad credentials

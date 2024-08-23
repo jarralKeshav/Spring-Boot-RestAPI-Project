@@ -42,15 +42,8 @@ const AuthFooter = () => {
           >
             Privacy Policy
           </Typography>
-          <Typography
-            variant="subtitle2"
-            color="secondary"
-            component={Link}
-            href="https://codedthemes.support-hub.io/"
-            target="_blank"
-            underline="hover"
-          >
-            Support
+          <Typography variant="subtitle2" color="secondary" component={Link} href="/about" target="_blank" underline="hover">
+            About
           </Typography>
         </Stack>
       </Stack>

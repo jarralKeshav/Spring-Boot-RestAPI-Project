@@ -20,7 +20,7 @@ The [Pro version](https://mantisdashboard.io) of Mantis react template includes 
 
 | [Mantis Free](https://mantisdashboard.io/free) | [Mantis Pro](https://mantisdashboard.io)                                         |
 | ---------------------------------------------- | :------------------------------------------------------------------------------- |
-| **7** Demo pages                               | **85+** Demo pages                                                               |
+| **7** Demo auth                               | **85+** Demo auth                                                               |
 | -                                              | ✓ Multi-language                                                                 |
 | -                                              | ✓ Dark/Light Mode 🌓                                                             |
 | -                                              | ✓ TypeScript version                                                             |

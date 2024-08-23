@@ -1,11 +1,12 @@
 // project import
+import auth from './auth';
+import albums from './albums';
 import pages from './pages';
-import support from './support';
 
 // ==============================|| MENU ITEMS ||============================== //
 
 const menuItems = {
-  items: [pages,  support]
+  items: [albums, auth, pages]
 };
 
 export default menuItems;
