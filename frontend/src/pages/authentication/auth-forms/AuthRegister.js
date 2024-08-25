@@ -16,7 +16,7 @@ const AuthRegister = () => {
       navigate('/');
       window.location.reload();
     }
-  }, []);
+  }, [navigate]);
 
   const validateEmail = () => {
     const emailRegex = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/;
@@ -41,10 +41,10 @@ const AuthRegister = () => {
     }
 
     fetchPostData('/auth/users/add', { email, password })
-      .then((response) => {
-        const { token } = response.data;
+      .then(() => {
+        // const { token } = response.data;
         setRegisterError('');
-        localStorage.setItem('token', token);
+        // localStorage.setItem('token', token);
         navigate('/login');
         window.location.reload();
       })

@@ -16,7 +16,7 @@ const AuthLogin = () => {
       navigate('/');
       window.location.reload();
     }
-  }, []);
+  }, [navigate]);
 
   const validateEmail = () => {
     const emailRegex = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/;

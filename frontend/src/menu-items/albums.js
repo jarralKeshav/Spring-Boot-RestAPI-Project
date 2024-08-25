@@ -1,17 +1,18 @@
 // assets
-import { ChromeOutlined, PictureOutlined } from '@ant-design/icons';
+import { ChromeOutlined, PictureOutlined, FileImageOutlined } from '@ant-design/icons';
 
 // icons
 const icons = {
   ChromeOutlined,
-  PictureOutlined
+  PictureOutlined,
+  FileImageOutlined
 };
 
 // ==============================|| MENU ITEMS - SAMPLE PAGE & DOCUMENTATION ||============================== //
 
 const albums = {
   id: 'albums',
-  title: 'Home',
+  title: 'Albums',
   type: 'group',
   children: [
     {
@@ -20,6 +21,13 @@ const albums = {
       type: 'item',
       url: '/',
       icon: icons.PictureOutlined
+    },
+    {
+      id: 'AddAlbum',
+      title: 'Add Albums',
+      type: 'item',
+      url: '/add-album',
+      icon: icons.FileImageOutlined
     }
     // {
     //   id: 'documentation',
