@@ -49,7 +49,7 @@ const fetchGetDataWithAuth = async (uri) => {
   const url = `${API_version}${uri}`;
 
   try {
-    const response = axios.get(url, {
+    const response = await axios.get(url, {
       headers: {
         Authorization: `Bearer ${token}`
       }
