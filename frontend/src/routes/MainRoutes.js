@@ -9,7 +9,9 @@ import MainLayout from 'layout/MainLayout';
 // render - sample page
 const AlbumsPage = Loadable(lazy(() => import('pages/albums/albums')));
 const AboutPage = Loadable(lazy(() => import('pages/staticPages/about')));
-const AddAlbumPage = Loadable(lazy(() => import('pages/albums/addAlbums')));
+const AlbumAddPage = Loadable(lazy(() => import('pages/albums/albumAdd')));
+const AlbumShowPage = Loadable(lazy(() => import('pages/albums/albumShow')));
+const AlbumUploadPage = Loadable(lazy(() => import('pages/albums/albumUpload')));
 
 // render - utilities
 
@@ -24,8 +26,16 @@ const MainRoutes = {
       element: <AlbumsPage />
     },
     {
-      path: '/add-album',
-      element: <AddAlbumPage />
+      path: '/album/add',
+      element: <AlbumAddPage />
+    },
+     {
+      path: '/album/show',
+      element: <AlbumShowPage />
+    },
+      {
+      path: '/album/upload',
+      element: <AlbumUploadPage />
     },
     {
       path: '/about',

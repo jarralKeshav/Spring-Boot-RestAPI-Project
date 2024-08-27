@@ -60,5 +60,23 @@ const fetchGetDataWithAuth = async (uri) => {
   }
 };
 
+const fetchUploadFileUploadWithAuth = async (uri, formData) => {
+  const token = localStorage.getItem('token');
+  const url = `${API_version}${uri}`;
+
+  try {
+    const response = await axios.post(url, formData, {
+      headers: {
+        //          Accept: '*/*',
+        'Content-Type': 'multipart/form-data',
+        Authorization: `Bearer ${token}`
+      }
+    });
+    return response;
+  } catch (error) {
+    console.error('Error fetching data', error);
+  }
+};
+
 export default fetchGetData;
-export { fetchPostData, fetchPostDataWithAuth, fetchGetDataWithAuth };
+export { fetchPostData, fetchPostDataWithAuth, fetchGetDataWithAuth, fetchUploadFileUploadWithAuth };
