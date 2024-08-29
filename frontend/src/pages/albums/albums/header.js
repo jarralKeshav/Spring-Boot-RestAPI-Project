@@ -1,10 +1,26 @@
 import React from 'react';
 import { AppBar, Toolbar, Typography, Button } from '@mui/material';
 import { Link, useLocation } from 'react-router-dom';
+import { fetchDeleteDataWithAuth } from '../../../client/client';
 
 const Header = () => {
   const query = new URLSearchParams(useLocation().search);
   const id = query.get('id');
+
+  const handleDelete = () => {
+    const isConfirmed = window.confirm('Are you sure you want to delete the album?');
+    console.log(isConfirmed);
+
+    if (isConfirmed) {
+      fetchDeleteDataWithAuth('/albums/' + id + '/delete').then((res) => {
+        console.log(res);
+        window.location.href = '/';
+        alert('Album deleted');
+      });
+    } else {
+      console.log('Delete operation cancelled');
+    }
+  };
 
   return (
     <AppBar position="static">
@@ -14,12 +30,12 @@ const Header = () => {
         </Typography>
         <Button
           component={Link}
-          to={`/album/show?id=${id}`}
+          to={`/album/edit?id=${id}`}
           color="inherit"
           variant="contained"
           sx={{ mr: 2, bgcolor: '#d933ff', '&:hover': { bgcolor: 'primary.dark' } }}
         >
-          Show Photos
+          Edit Album
         </Button>
         <Button
           component={Link}
@@ -31,13 +47,12 @@ const Header = () => {
           Upload Photo
         </Button>
         <Button
-          component={Link}
-          to={`/album/delete?id=${id}`}
+          onClick={handleDelete}
           color="inherit"
           variant="contained"
           sx={{ mr: 2, bgcolor: '#FF0000', '&:hover': { bgcolor: 'primary.dark' } }}
         >
-          Delete Photos
+          Delete Album
         </Button>
       </Toolbar>
     </AppBar>
