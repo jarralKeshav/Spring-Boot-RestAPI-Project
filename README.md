@@ -153,6 +153,37 @@ Swagger UI will be available at:
 
     http://localhost:8080/swagger-ui/index.html#/
 
+Screenshots:(API)
+![Screenshot_20240910_210123](https://github.com/user-attachments/assets/a6312351-2692-48a1-bd94-03c3d42f642d)
+![Screenshot_20240910_210222](https://github.com/user-attachments/assets/cf4d7ff6-2437-421e-bdc2-cd7717fea947)
+
+Schemas:
+
+![Screenshot_20240910_210251](https://github.com/user-attachments/assets/0c6af689-6a44-4c0b-89e2-85a04b00a8d4)
+
+FRONTEND:
+Login & Logout:
+
+![Screenshot_20240910_210500](https://github.com/user-attachments/assets/2f90e7ad-4ecb-457b-84c7-73a670f8154c)
+![Screenshot_20240910_210511](https://github.com/user-attachments/assets/b8a4d220-c8bb-44be-a963-e7540468b9cd)
+
+Add Album:
+
+![Screenshot_20240910_210548](https://github.com/user-attachments/assets/7df7f977-a22f-4b45-b46d-9f30f61f8ec5)
+
+Sample Albums:
+
+![Screenshot_20240910_210636](https://github.com/user-attachments/assets/d3a779fc-8f58-49d4-afbe-a0e5f5a0141a)
+
+Photo Upload:
+
+
+![Screenshot_20240910_210709](https://github.com/user-attachments/assets/ca2adab3-eb3c-4727-9487-b2a7d6c8db57)
+
+![Screenshot_20240910_210758](https://github.com/user-attachments/assets/d28f36fa-246f-48b8-ba6d-38e92a9be58f)
+
+
+
 4. Minimal Authentication Flow
 
     Users will authenticate using JWT.
