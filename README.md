@@ -1,11 +1,11 @@
 Here is a minimal Spring Boot template with H2 database, JWT authentication, ReactJS frontend, and Swagger UI for API documentation:
 1. Project Structure Overview
 
-    Backend: Spring Boot (Java 17)
-    Frontend: ReactJS
-    Database: H2 (in-memory)
-    Authentication: JWT Token (Spring Security)
-    API Testing: Swagger UI
+    1. Backend: Spring Boot (Java 17)
+    2. Frontend: ReactJS
+    3. Database: H2 (in-memory)
+    4. Authentication: JWT Token (Spring Security)
+    5. API Testing: Swagger UI
 
 2. Installation and Setup Guide
 Backend (Spring Boot)
@@ -49,7 +49,9 @@ Ensure Node.js is installed.
 bash:
 
     node -v  # Check if Node.js is installed
+    v20.16.0
     npm -v   # Check if npm is installed
+    10.8.1
 
 2.6 Navigate to the ReactJS frontend folder:
 
