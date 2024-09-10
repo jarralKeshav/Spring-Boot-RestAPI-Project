@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Card, CardContent, CardMedia, Grid, Tooltip, Typography } from '@mui/material';
+import { Button, Card, CardContent, CardMedia, Grid, Tooltip, Typography } from '@mui/material';
 import {
   fetchGetDataWithAuth,
   fetchGetDataWithAuthArrayBuffer,
@@ -8,6 +8,35 @@ import {
 } from '../../../client/client';
 import { useLocation } from 'react-router-dom';
 import { Buffer } from 'buffer';
+import { makeStyles } from '@mui/styles';
+import Modal from '@mui/material/Modal';
+
+const useStyles = makeStyles((theme) => ({
+  modal: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  modalMain: {
+    backgroundColor: theme.palette.background.paper,
+    borderRadius: '10px',
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3),
+    maxHeight: '75%',
+    maxWidth: '75%',
+    overflow: 'auto',
+    display: 'flex',
+    flexDirection: 'column' // Add this to stack content vertically
+  },
+  closeButton: {
+    marginLeft: 'auto'
+  },
+  buttonContainer: {
+    marginTop: 'auto', // Push buttons to the bottom
+    display: 'flex',
+    justifyContent: 'space-between' // Ensure buttons are spaced evenly
+  }
+}));
 
 const PhotoGrid = () => {
   const [photos, setPhotos] = useState({});
@@ -15,9 +44,27 @@ const PhotoGrid = () => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const album_id = queryParams.get('id');
+  const [open, setOpen] = useState(false);
+  const classes = useStyles();
+  const [photoContent, setPhotoContent] = useState(null);
+  const [photoDesc, setPhotoDesc] = useState('');
+  const [downloadLink, setDownloadLink] = useState(null);
 
-  const handleView = () => {
-    console.log('view clicked');
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleView = (download_link, description) => {
+    fetchGetDataWithAuthArrayBuffer(download_link).then((response) => {
+      const buffer = Buffer.from(response.data, 'binary').toString('base64');
+      setPhotoContent(buffer);
+    });
+    setDownloadLink(download_link);
+    setPhotoDesc(description);
+    handleOpen();
   };
   const handleDownload = (download_link) => {
     console.log(download_link);
@@ -58,7 +105,8 @@ const PhotoGrid = () => {
       console.log('response: ', res.data.photos);
       const photoList = res.data.photos;
       photoList.forEach((photo) => {
-        fetchGetDataWithAuthArrayBuffer(photo.download_link).then((response) => {
+        let thumbnail_link = photo.download_link.replace('/download-photo', '/download-thumbnail');
+        fetchGetDataWithAuthArrayBuffer(thumbnail_link).then((response) => {
           const albumPhotoId = 'album_' + album_id + '_photo+' + photo.id;
           const buffer = Buffer.from(response.data, 'binary').toString('base64');
 
@@ -79,6 +127,23 @@ const PhotoGrid = () => {
 
   return (
     <div>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby={'modal-modal-title'}
+        aria-describedby={'modal-modal-description'}
+        className={classes.modal}
+      >
+        <div className={classes.modalMain}>
+          <img src={'data:image/jpeg;base64,' + photoContent} alt={photoDesc} style={{ width: '100%', height: 'auto' }} />
+          <div className={classes.buttonContainer}>
+            <Button onClick={() => handleDownload(downloadLink)}>Download Photo</Button>
+            <Button onClick={handleClose} className={classes.closeButton}>
+              Close
+            </Button>
+          </div>
+        </div>
+      </Modal>
       <Typography variant={'h4'} gutterBottom>
         {albumInfo.title}
       </Typography>
@@ -103,7 +168,7 @@ const PhotoGrid = () => {
                 <Tooltip title={photos[key]['description']}>
                   <Typography variant="subtitle1">{photos[key]['name']}</Typography>
                 </Tooltip>
-                <a href="#" onClick={handleView}>
+                <a href="#" onClick={() => handleView(photos[key]['download_link'], photos[key]['description'])}>
                   View
                 </a>{' '}
                 |{' '}

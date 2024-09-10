@@ -46,10 +46,10 @@ public class AuthController {
     @PostMapping("/token")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<TokenDTO> token(@Valid @RequestBody UserLoginDTO userLogin) throws AuthenticationException {
-        try {
+        try {           
             Authentication authentication =
                     authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(userLogin.getEmail(),
-                            userLogin.getPassword()));
+                            userLogin.getPassword()));  
             return ResponseEntity.ok(new TokenDTO(tokenService.generateToken(authentication)));
         } catch (Exception e) {
             log.debug(AccountError.TOKEN_GENERATION_ERROR.toString()+" "+ e.getMessage());
