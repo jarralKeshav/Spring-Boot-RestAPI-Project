@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
         title = "Demo Api",
         version = "Version 1.0",
         contact = @Contact(
-                name = "Keshav Jrall" , email = "keshavjrall@outlook.com", url = "to be updated"
+                name = "<YOUR-NAME>" , email = "<YOUR-EMAIL>", url = "<URL (if available)>"
         ),
         license = @License(
                 name = "Apache 2.0" ,url = "https://www.apache.org/licenses/LICENSE-2.0"
